@@ -1,15 +1,16 @@
 {
   "name": "legov",
   "version": "1.0.0",
-  "description": "多站点前端集成解决方案。",
+  "description": "基于项目的多站点前端集成解决方案。",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/legojs/lego.git"
+    "url": "https://github.com/legojs/legov.git"
   },
   "author": "ronesam",
-  "license": "MIT"
+  "license": "MIT",
+  "dependencies": {}
 }
