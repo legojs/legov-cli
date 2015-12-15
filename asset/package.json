@@ -1,13 +1,8 @@
 {
   "name": "legov",
-  "version": "1.0.3",
+  "version": "1.0.0",
   "description": "基于项目的多站点前端集成解决方案。",
-  "main": "package.json",
-  "bin": {
-    "lv": "bin/legov.js",
-    "lego": "bin/legov.js",
-    "legov": "bin/legov.js"
-  },
+  "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
@@ -18,8 +13,8 @@
   "author": "ronesam",
   "license": "MIT",
   "dependencies": {
-    "chalk": "^1.1.1",
-    "commander": "^2.9.0",
-    "hexo-fs": "^0.1.5"
+    "gulp": "^3.9.0",
+    "gulp-concat": "^2.6.0",
+    "gulp-wrap-exports": "^0.3.0"
   }
 }
