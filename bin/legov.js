@@ -3,7 +3,7 @@ var program = require('commander');
 var app_info = require('../package.json');
 var chalk = require('chalk');
 var init = require('../lib/init');
-var sown = require('../lib/sown');
+var sown = require('../lib/generator');
 var target = process.cwd();
 
 //基本信息
@@ -27,7 +27,8 @@ program
 
 //$ lv seed
 program
-  .command('sown <seed>')
+  .command('generator <seed>')
+  .alias('g')
   .description('播种项目（请确定种子已经就位）。')
   .action(function(seed){
     console.log('\n  [%s]开始播种项目~~', chalk.green(seed));
@@ -35,11 +36,11 @@ program
   }).on('--help', function() {
     console.log('  Examples:');
     console.log('    $ cd "工程目录/@legov"');
-    console.log('    $ npm i legov-seed-codeigniter');
+    console.log('    $ tnpm i @tencent/wxpay-seed-codeigniter');
     console.log('    $ cd ..              #返回工程目录');
     console.log('    $ mkdir <项目目录>   #建立项目目录（或者从 Svn or Git 拉取）');
     console.log('    $ cd <项目目录>');
-    console.log('    $ %s %s codeigniter', chalk.magenta('lv'), chalk.cyan('sown'));
+    console.log('    $ %s %s codeigniter', chalk.magenta('lv'), chalk.cyan('g'));
   });
 
 program.parse(process.argv);
