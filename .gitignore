@@ -7,3 +7,4 @@ node_modules/
 .deploy*/
 *.sublime*
 _*/
+bin/legov.yml
