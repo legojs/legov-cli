@@ -25,6 +25,8 @@ local:\n\
   path:\n\
 seed:\n\
   prefix: legov-seed-\
+leaf:\n\
+  prefix: legov-leaf-\
 site:\n';
   })
   .then(function (data) {
@@ -106,7 +108,7 @@ program
 
 //$ lv generator <seed>
 program
-  .command('generator <seed>')
+  .command('generate <seed>')
   .alias('g')
   .description('播种站点（请确定种子已经就位）。')
   .action(function (seed) {
@@ -116,7 +118,7 @@ program
         console.log('    $ %s %s -h\n', chalk.magenta('lv'), chalk.cyan('init'));
       } else {
         console.log('\n  [%s]开始播种站点~~\n', chalk.green(seed));
-        require('../lib/generator')(config, seed);
+        require('../lib/generate')(config, seed);
       }
     }).catch(console.log);
   })
@@ -157,7 +159,7 @@ program
 //$ lv proxy
 program
   .command('proxy')
-  .alias('p')
+  .alias('x')
   .description('启动代理服务器。')
   .action(function(){
     _readConfig().then(function (config) {
@@ -191,5 +193,27 @@ program
     console.log('    $ cd ../<站点目录>\n');
     console.log('    $ %s %s flame -n project\n', chalk.magenta('lv'), chalk.cyan('add'));
   });  
+
+//$ lv pack
+program
+  .command('bundle')
+  .alias('b')
+  .description('打包服务。')
+  .action(function(){
+    _readConfig().then(function (config) {
+      if ('' == config.local.path){
+        console.log('\n  尚未初始化工程，请执行以下命令查看帮助：\n');
+        console.log('    $ %s %s -h\n', chalk.magenta('lv'), chalk.cyan('init'));
+      } else {
+        console.log('\n  开始打包~~');
+        require('../lib/bundle')(config);
+      }
+    }).catch(console.log); 
+  })
+  .on('--help', function() {
+    console.log('  Examples:  \n');
+    console.log('    $ cd wxpay.oa.com-boss/views/home\n');
+    console.log('    $ %s %s\n', chalk.magenta('lv'), chalk.cyan('p'));
+  });
 
 program.parse(process.argv);
