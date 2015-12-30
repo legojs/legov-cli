@@ -178,13 +178,20 @@ program
     console.log('    $ %s %s\n', chalk.magenta('lv'), chalk.cyan('p'));
   });
 
-//$ lv add <leaf>
+//$ lv add <leaf> <name>
 program
-  .command('add <leaf>')
+  .command('add <leaf> <project>')
   .description('增加项目（请确定叶子已经就位）。')
-  .action(function(leaf){
-    console.log('\n  [%s]开始增加项目~~', chalk.green(leaf)) + '\n';
-    add(current, leaf);
+  .action(function(leaf, project){
+    _readConfig().then(function (config) {
+      if ('' == config.local.path){
+        console.log('\n  尚未初始化工程，请执行以下命令查看帮助：\n');
+        console.log('    $ %s %s -h\n', chalk.magenta('lv'), chalk.cyan('init'));
+      } else {
+        console.log('\n  [%s %s]开始增加项目~~\n', chalk.green(leaf), chalk.yellow(project));
+        require('../lib/add')(config, leaf, project);
+      }
+    }).catch(console.log);
   })
   .on('--help', function() {
     console.log('  Examples:  \n');
