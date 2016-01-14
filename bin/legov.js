@@ -201,7 +201,7 @@ program
     console.log('    $ %s %s flame -n project\n', chalk.magenta('lv'), chalk.cyan('add'));
   });  
 
-//$ lv pack
+//$ lv bundle
 program
   .command('bundle')
   .alias('b')
@@ -220,6 +220,28 @@ program
   .on('--help', function() {
     console.log('  Examples:  \n');
     console.log('    $ cd wxpay.oa.com-boss/views/home\n');
+    console.log('    $ %s %s\n', chalk.magenta('lv'), chalk.cyan('b'));
+  });
+
+//$ lv publish
+program
+  .command('publish')
+  .alias('p')
+  .description('发布项目。')
+  .action(function(){
+    _readConfig().then(function (config) {
+      if ('' == config.local.path){
+        console.log('\n  尚未初始化工程，请执行以下命令查看帮助：\n');
+        console.log('    $ %s %s -h\n', chalk.magenta('lv'), chalk.cyan('init'));
+      } else {
+        console.log('\n  开始打包~~');
+        require('../lib/publish')(config);
+      }
+    }).catch(console.log); 
+  })
+  .on('--help', function() {
+    console.log('  Examples:  \n');
+    console.log('    $ cd wxpay.oa.com-boss/material/\n');
     console.log('    $ %s %s\n', chalk.magenta('lv'), chalk.cyan('p'));
   });
 

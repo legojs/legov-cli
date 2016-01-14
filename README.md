@@ -2,6 +2,11 @@
 基于项目的多站点前端集成解决方案。
 
 # Version
+## 1.2.0
+### Commands:
+* bundle|b      文件打包
+* add           增加叶子
+
 ## 1.1.0
 ### Commands:
 *  init                初始化前端工程。

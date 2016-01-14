@@ -5,5 +5,4 @@ db.json
 *.log
 node_modules/
 .deploy*/
-*.sublime*
 _*/
