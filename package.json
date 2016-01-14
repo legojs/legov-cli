@@ -1,6 +1,6 @@
 {
   "name": "legov",
-  "version": "1.2.3",
+  "version": "1.2.4",
   "description": "基于项目的多站点前端集成解决方案。",
   "main": "package.json",
   "bin": {
