@@ -24,9 +24,9 @@ local:\n\
   yml:\n\
   path:\n\
 seed:\n\
-  prefix: legov-seed-\
+  prefix: legov-seed-\n\
 leaf:\n\
-  prefix: legov-leaf-\
+  prefix: legov-leaf-\n\
 site:\n';
   })
   .then(function (data) {
